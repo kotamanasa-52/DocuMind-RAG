@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#d1dbe4">
+    <title>DocuMind — Your documents, understood</title>
+    <meta name="description"
+          content="Upload documents, ask questions, and discover clear answers with DocuMind.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+    <div class="noise-overlay"></div>
+
+    <header class="topbar" id="topbar">
+        <a class="brand" href="#" id="brandHome" aria-label="DocuMind home">
+            <span class="brand-mark">
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                    <rect x="5" y="5" width="30" height="30" rx="10"
+                          fill="currentColor" opacity=".12"/>
+                    <path d="M13 12h9l6 6v10H13z" fill="none"
+                          stroke="currentColor" stroke-width="1.8"
+                          stroke-linejoin="round"/>
+                    <path d="M22 12v7h6M17 23h7M17 26h7"
+                          fill="none" stroke="currentColor"
+                          stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </span>
+            <span>Docu<span class="brand-light">Mind</span></span>
+        </a>
+
+        <nav class="topnav" aria-label="Main navigation">
+            <a href="#howItWorks" id="howLink">How it works</a>
+            <a href="#workspace" id="workspaceLink">Workspace</a>
+        </nav>
+
+        <button class="button button-small button-outline" id="navGetStarted">
+            Get started <span aria-hidden="true">↗</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- LANDING PAGE -->
+        <section class="landing" id="landing">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow reveal">
+                        <span class="eyebrow-dot"></span>
+                        YOUR PERSONAL DOCUMENT ASSISTANT
+                    </div>
+
+                    <h1 class="hero-title reveal reveal-delay-1">
+                        Your documents.<br>
+                        Your questions.<br>
+                        <span class="gradient-text">Clear answers<span class="title-period">.</span></span>
+                    </h1>
+
+                    <p class="hero-description reveal reveal-delay-2">
+                        Turn lengthy documents into meaningful conversations.
+                        Upload your files, ask what matters, and find the answers
+                        hidden in your content.
+                    </p>
+
+                    <div class="hero-actions reveal reveal-delay-3">
+                        <button class="button button-primary button-large" id="getStarted">
+                            Get started
+                            <span class="button-arrow" aria-hidden="true">↗</span>
+                        </button>
+                        <button class="button button-ghost button-large" id="uploadFromHero">
+                            <span class="upload-icon" aria-hidden="true">↑</span>
+                            Upload a document
+                        </button>
+                    </div>
+
+                    <div class="hero-footnote reveal reveal-delay-3">
+                        <span class="status-dot"></span>
+                        <span>PDF · DOCX · TXT · CSV · EXCEL</span>
+                        <span class="footnote-divider"></span>
+                        <span>Up to 20 MB per file</span>
+                    </div>
+                </div>
+
+                <!-- Decorative animated preview -->
+                <div class="hero-visual reveal reveal-delay-2" aria-label="Animated document assistant preview">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit orbit-three"></div>
+
+                    <div class="floating-chip chip-top">
+                        <span class="chip-icon chip-purple">✳</span>
+                        <span>AI-powered insights</span>
+                    </div>
+
+                    <div class="document-card main-document">
+                        <div class="document-card-top">
+                            <div class="file-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6 3.75h8l4 4V20H6z" fill="none"
+                                          stroke="currentColor" stroke-width="1.6"
+                                          stroke-linejoin="round"/>
+                                    <path d="M14 3.75v4h4M9 12h6M9 15.5h6"
+                                          fill="none" stroke="currentColor"
+                                          stroke-width="1.6" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="document-meta">
+                                <strong>Research_notes.pdf</strong>
+                                <span>Document preview</span>
+                            </div>
+                            <span class="file-menu">···</span>
+                        </div>
+
+                        <div class="document-rule"></div>
+                        <div class="fake-heading"></div>
+                        <div class="fake-line line-long"></div>
+                        <div class="fake-line line-medium"></div>
+                        <div class="fake-line line-short"></div>
+                        <div class="fake-subheading"></div>
+                        <div class="fake-line line-long"></div>
+                        <div class="fake-line line-medium"></div>
+                        <div class="fake-line line-long"></div>
+
+                        <div class="document-highlight">
+                            <span class="highlight-sparkle">✦</span>
+                            <span>Key insight detected</span>
+                        </div>
+                    </div>
+
+                    <div class="floating-chip chip-bottom">
+                        <span class="chip-icon chip-green">✓</span>
+                        <span>Sources identified</span>
+                    </div>
+
+                    <div class="floating-answer">
+                        <div class="answer-topline">
+                            <span class="answer-avatar">✦</span>
+                            <span>DocuMind AI</span>
+                            <span class="answer-live"><i></i> Ready</span>
+                        </div>
+                        <p>Your document suggests three key findings...</p>
+                        <div class="answer-mini-line"></div>
+                        <div class="answer-mini-line answer-mini-short"></div>
+                    </div>
+
+                    <span class="sparkle sparkle-one">✦</span>
+                    <span class="sparkle sparkle-two">✧</span>
+                    <span class="sparkle sparkle-three">✦</span>
+                </div>
+            </div>
+
+            <div class="hero-bottom reveal reveal-delay-3">
+                <span class="bottom-label">LESS SEARCHING. MORE UNDERSTANDING.</span>
+                <div class="bottom-stat">
+                    <span class="stat-symbol">01</span>
+                    <span>Upload your document</span>
+                </div>
+                <span class="stat-line"></span>
+                <div class="bottom-stat">
+                    <span class="stat-symbol">02</span>
+                    <span>Ask in plain language</span>
+                </div>
+                <span class="stat-line"></span>
+                <div class="bottom-stat">
+                    <span class="stat-symbol">03</span>
+                    <span>Get grounded answers</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-section" id="howItWorks">
+            <div class="section-heading reveal">
+                <span class="eyebrow"><span class="eyebrow-dot"></span> SIMPLE BY DESIGN</span>
+                <h2>From document to <span class="gradient-text">understanding.</span></h2>
+                <p>Three simple steps. No need to read every page yourself.</p>
+            </div>
+
+            <div class="steps-grid">
+                <article class="step-card reveal">
+                    <div class="step-number">01 <span>↗</span></div>
+                    <div class="step-illustration upload-illustration">
+                        <div class="illustration-page">
+                            <span class="illustration-fold"></span>
+                            <i></i><i></i><i></i>
+                        </div>
+                        <div class="illustration-upload">↑</div>
+                    </div>
+                    <h3>Bring your documents</h3>
+                    <p>Upload a PDF, Word document, text file, CSV, or spreadsheet.</p>
+                </article>
+
+                <article class="step-card reveal reveal-delay-1">
+                    <div class="step-number">02 <span>↗</span></div>
+                    <div class="step-illustration question-illustration">
+                        <div class="question-bubble">Ask anything<span>?</span></div>
+                        <div class="question-dot dot-a"></div>
+                        <div class="question-dot dot-b"></div>
+                        <div class="question-dot dot-c"></div>
+                    </div>
+                    <h3>Ask naturally</h3>
+                    <p>Type a question just as you would ask a person. Be specific or explore.</p>
+                </article>
+
+                <article class="step-card reveal reveal-delay-2">
+                    <div class="step-number">03 <span>↗</span></div>
+                    <div class="step-illustration answer-illustration">
+                        <div class="answer-check">✓</div>
+                        <div class="answer-lines"><i></i><i></i><i></i></div>
+                        <div class="answer-source-pill">Sources included</div>
+                    </div>
+                    <h3>Understand the answer</h3>
+                    <p>Get a clear response based on your document, with source excerpts.</p>
+                </article>
+            </div>
+
+            <div class="section-cta reveal">
+                <div>
+                    <h3>Ready to explore your documents?</h3>
+                    <p>Your next answer could be just one question away.</p>
+                </div>
+                <button class="button button-primary" id="startFromSection">
+                    Open workspace <span aria-hidden="true">↗</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- WORKSPACE -->
+        <section class="workspace-section" id="workspace">
+            <div class="workspace-heading">
+                <div>
+                    <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PRIVATE WORKSPACE</div>
+                    <h2>Let's find your <span class="gradient-text">answers.</span></h2>
+                    <p>Upload one document, then ask a question about its contents.</p>
+                </div>
+                <button class="button button-outline" id="backToHome">
+                    <span aria-hidden="true">←</span> Back to home
+                </button>
+            </div>
+
+            <div class="workspace-grid">
+                <aside class="upload-panel panel">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="panel-kicker">STEP 01</span>
+                            <h3>Your document</h3>
+                        </div>
+                        <span class="panel-icon">↥</span>
+                    </div>
+
+                    <p class="panel-description">Choose a file to begin your conversation.</p>
+
+                    <div class="drop-zone" id="dropZone" role="button" tabindex="0"
+                         aria-label="Choose or drop a document">
+                        <div class="drop-icon">
+                            <svg viewBox="0 0 32 32" aria-hidden="true">
+                                <path d="M16 21V7m0 0-5 5m5-5 5 5"
+                                      fill="none" stroke="currentColor"
+                                      stroke-width="1.8" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M7 20v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"
+                                      fill="none" stroke="currentColor"
+                                      stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <strong>Drop your file here</strong>
+                        <span>or <u>browse files</u></span>
+                        <small>PDF, DOCX, TXT, CSV, XLSX, XLS</small>
+                    </div>
+
+                    <input type="file" id="fileInput"
+                           accept=".pdf,.txt,.docx,.csv,.xlsx,.xls"
+                           hidden>
+
+                    <div class="selected-file" id="selectedFile" hidden>
+                        <div class="selected-file-icon">▤</div>
+                        <div class="selected-file-info">
+                            <strong id="selectedFileName">document.pdf</strong>
+                            <span id="selectedFileSize">0 KB</span>
+                        </div>
+                        <button class="icon-button" id="removeFile"
+                                type="button" aria-label="Remove selected file">×</button>
+                    </div>
+
+                    <button class="button button-primary upload-button" id="processButton" disabled>
+                        <span id="processButtonText">Upload &amp; process</span>
+                        <span aria-hidden="true">↗</span>
+                    </button>
+
+                    <div class="upload-status" id="uploadStatus" role="status" aria-live="polite">
+                        <span class="status-dot status-dot-muted"></span>
+                        <span id="uploadStatusText">Waiting for a document</span>
+                    </div>
+
+                    <div class="privacy-note">
+                        <span>◇</span>
+                        <p>Only one active document is used at a time. Files are processed locally by your running backend and Ollama setup.</p>
+                    </div>
+                </aside>
+
+                <section class="chat-panel panel">
+                    <div class="panel-heading chat-panel-heading">
+                        <div>
+                            <span class="panel-kicker">STEP 02</span>
+                            <h3>Ask your document</h3>
+                        </div>
+                        <span class="assistant-badge"><i></i> AI assistant</span>
+                    </div>
+
+                    <div class="chat-empty" id="chatEmpty">
+                        <div class="empty-orbit">
+                            <div class="empty-orbit-ring"></div>
+                            <div class="empty-orbit-core">✦</div>
+                            <span class="empty-orbit-dot"></span>
+                        </div>
+                        <h3>Your answers start here.</h3>
+                        <p>Process a document, then ask a question to discover what it contains.</p>
+
+                        <div class="suggestion-list">
+                            <button class="suggestion" data-question="Summarize this document in simple language.">
+                                <span>✧</span> Summarize this document
+                                <span class="suggestion-arrow">↗</span>
+                            </button>
+                            <button class="suggestion" data-question="What are the most important points in this document?">
+                                <span>⌕</span> Find the key points
+                                <span class="suggestion-arrow">↗</span>
+                            </button>
+                            <button class="suggestion" data-question="What conclusions can be drawn from this document?">
+                                <span>◎</span> Explain the conclusions
+                                <span class="suggestion-arrow">↗</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chat-content" id="chatContent" hidden>
+                        <div class="conversation-label">YOUR CONVERSATION</div>
+                        <div class="user-question">
+                            <span class="user-avatar">Y</span>
+                            <div>
+                                <span class="message-label">YOU ASKED</span>
+                                <p id="questionOutput"></p>
+                            </div>
+                        </div>
+
+                        <div class="ai-answer-block">
+                            <div class="ai-answer-heading">
+                                <span class="answer-avatar">✦</span>
+                                <div>
+                                    <strong>DocuMind</strong>
+                                    <span class="message-label">DOCUMENT-BASED ANSWER</span>
+                                </div>
+                                <span class="answer-checkmark">✓</span>
+                            </div>
+
+                            <div class="answer-body" id="answerOutput"></div>
+
+                            <div class="answer-actions">
+                                <button class="text-action" id="copyAnswer">▢ Copy answer</button>
+                                <button class="text-action" id="downloadAnswer">↓ Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-box">
+                        <label for="questionInput" class="sr-only">Ask a question</label>
+                        <textarea id="questionInput" rows="1"
+                                  placeholder="Ask anything about your document..."
+                                  disabled></textarea>
+                        <div class="question-box-footer">
+                            <span class="question-hint"><span>✦</span> Answers are based on your uploaded document</span>
+                            <button class="button button-primary ask-button" id="askButton" disabled>
+                                <span id="askButtonText">Generate answer</span>
+                                <span aria-hidden="true">↗</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="workspace-footer">
+                <span><span class="footer-status-dot"></span> DocuMind is ready when you are</span>
+                <span>Designed for clarity <span class="footer-sparkle">✦</span></span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="siteFooter">
+        <a class="brand footer-brand" href="#" id="footerHome">
+            <span class="brand-mark">✳</span>
+            <span>Docu<span class="brand-light">Mind</span></span>
+        </a>
+        <span>Make every document easier to understand.</span>
+        <span>© <span id="currentYear"></span> DocuMind</span>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Python environment and cache
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+
+# Generated databases
+chroma_db/
+uicoder_clean_test_db/
+uicoder_test_db/
+
+# Uploaded and temporary files
+uploads/
+temp/
+
+# IDE files
+.vscode/
